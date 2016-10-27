@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/aop 
+    	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        ">
+	<aop:config>
+	
+		<!-- loggerAspect1 -->	
+		<aop:aspect id="loggerAspect1" ref="loggerAspectBean">
+	   
+			<aop:pointcut id="loggerPointCut" expression="execution(* demo.DummyBean.talk(..))" />
+			
+	      	<aop:before pointcut-ref="loggerPointCut" method="logBeforeMethod"/>
+	
+	      	<aop:after pointcut-ref="loggerPointCut" method="logAfterMethod"/>
+	      
+		</aop:aspect>
+		
+		<!-- loggerAspect2 -->
+		<aop:aspect id="loggerAspect2" ref="loggerAspectBean">
+			
+			<aop:pointcut id="loggerPointCut2" expression="execution(* demo.DummyBean.getTheAnswer(..))" />
+			
+			<aop:after-returning pointcut-ref="loggerPointCut2" returning="retVal" method="logAfterReturningMethod"/>
+		
+		</aop:aspect>
+		
+		<!-- loggerAspect3 -->
+		<aop:aspect id="loggerAspect3" ref="loggerAspectBean">
+		
+			<aop:pointcut id="loggerPointCut3" expression="execution(* demo.DummyBean.throwARunTimeException(..))" />
+			
+			<aop:after-throwing pointcut-ref="loggerPointCut3" throwing="ex" method="logAfterThrowingMethod"/>
+			
+		</aop:aspect>
+		
+	</aop:config>
+
+	<bean id="loggerAspectBean" class="demo.spring_aop.AopLogger">
+	</bean>
+	
+	<bean id="dummy1" class="demo.DummyBean">
+	</bean>
+</beans>

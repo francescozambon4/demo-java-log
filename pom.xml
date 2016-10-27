@@ -13,10 +13,34 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<spring.version>4.3.3.RELEASE</spring.version>
 	</properties>
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -24,12 +48,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- log -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.21</version>
 		</dependency>
 
+<!--
 		<dependency>
 			<groupId>com.jcabi</groupId>
 			<artifactId>jcabi-aspects</artifactId>
@@ -41,6 +67,7 @@
 			<version>1.6.12</version>
 			<scope>runtime</scope>
 		</dependency>
+-->		
 	</dependencies>
 	<build>
 		<plugins>
@@ -55,10 +82,10 @@
 				</configuration>
 			</plugin>
 
+<!--
 			<plugin>
 				<groupId>com.jcabi</groupId>
 				<artifactId>jcabi-maven-plugin</artifactId>
-				<!-- <version>0.8</version> -->
 				<version>0.14.1</version>
 				<executions>
 					<execution>
@@ -68,12 +95,11 @@
 					</execution>
 				</executions>
 			</plugin>
+-->			
 		</plugins>
-
+<!--
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -100,5 +126,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+-->		
 	</build>
 </project>

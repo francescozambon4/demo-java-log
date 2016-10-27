@@ -10,9 +10,10 @@ public class Log4jTest {
 	@Test
 	public void test() {
 		
-		LOGGER.debug("--- log4j debug msg");
-		LOGGER.info("--- log4j info msg");
-		LOGGER.error("--- log4j error msg");
+		LOGGER.debug("log4j debug msg");
+		LOGGER.info("log4j info msg");
+		LOGGER.error("log4j error msg");
+		
 		
 	}
 
