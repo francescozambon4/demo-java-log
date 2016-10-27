@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>demo</groupId>
-	<artifactId>java_log</artifactId>
+	<artifactId>demo-java-log</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>java_log</name>
+	<name>demo-java-log</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -23,7 +23,7 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
