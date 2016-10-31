@@ -14,15 +14,32 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.version>4.3.3.RELEASE</spring.version>
+		<aspectj.version>1.8.9</aspectj.version>
 	</properties>
 
 
 	<dependencies>
+	
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- log -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.21</version>
+		</dependency>
 
+		<!-- spring aop -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.9</version>
+			<version>${aspectj.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -40,22 +57,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- log -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.21</version>
-		</dependency>
-
-<!--
+		<!-- jcabi -->
 		<dependency>
 			<groupId>com.jcabi</groupId>
 			<artifactId>jcabi-aspects</artifactId>
@@ -64,10 +66,10 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.6.12</version>
+			<version>${aspectj.version}</version>
 			<scope>runtime</scope>
 		</dependency>
--->		
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -81,8 +83,8 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
-<!--
+			
+			<!-- plugin jcabi -->
 			<plugin>
 				<groupId>com.jcabi</groupId>
 				<artifactId>jcabi-maven-plugin</artifactId>
@@ -94,10 +96,10 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
--->			
+			</plugin>			
 		</plugins>
-<!--
+		
+		<!-- fix eclipse plugin jcabi -->
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -125,7 +127,6 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>
--->		
+		</pluginManagement>		
 	</build>
 </project>

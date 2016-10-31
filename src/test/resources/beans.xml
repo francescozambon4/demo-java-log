@@ -10,35 +10,33 @@
         ">
 	<aop:config>
 	
-		<!-- loggerAspect1 -->	
 		<aop:aspect id="loggerAspect1" ref="loggerAspectBean">
-	   
 			<aop:pointcut id="loggerPointCut" expression="execution(* demo.DummyBean.talk(..))" />
-			
-	      	<aop:before pointcut-ref="loggerPointCut" method="logBeforeMethod"/>
-	
+	      	<aop:before pointcut-ref="loggerPointCut" method="logBeforeMethod"/>	
 	      	<aop:after pointcut-ref="loggerPointCut" method="logAfterMethod"/>
-	      
 		</aop:aspect>
+
+<!-- 		<aop:aspect id="loggerAspect2" ref="loggerAspectBean"> -->
+<!-- 			<aop:pointcut id="loggerPointCut2" expression="execution(* demo.DummyBean.getTheAnswer(..))" /> -->
+<!-- 			<aop:after-returning pointcut-ref="loggerPointCut2" returning="retVal" method="logAfterReturningMethod"/> -->
+<!-- 		</aop:aspect> -->
 		
-		<!-- loggerAspect2 -->
-		<aop:aspect id="loggerAspect2" ref="loggerAspectBean">
-			
-			<aop:pointcut id="loggerPointCut2" expression="execution(* demo.DummyBean.getTheAnswer(..))" />
-			
-			<aop:after-returning pointcut-ref="loggerPointCut2" returning="retVal" method="logAfterReturningMethod"/>
+<!-- 		<aop:aspect id="loggerAspect3" ref="loggerAspectBean"> -->
+<!-- 			<aop:pointcut id="loggerPointCut3" expression="execution(* demo.DummyBean.throwARunTimeException(..))" /> -->
+<!-- 			<aop:after-throwing pointcut-ref="loggerPointCut3" throwing="ex" method="logAfterThrowingMethod"/> -->
+<!-- 		</aop:aspect> -->
+
+
+<!-- 		<aop:aspect id="loggerAspect4" ref="loggerAspectBean"> -->
+<!-- 			<aop:pointcut id="loggerPointCut4" expression="execution(* demo.DummyBean.talk(..))" /> -->
+<!-- 			<aop:after-returning pointcut-ref="loggerPointCut4" returning="retVal" method="logAfterReturningMethod"/> -->
+<!-- 		</aop:aspect> -->
 		
+		<aop:aspect id="loggerAspect5" ref="loggerAspectBean">
+			<aop:pointcut id="loggerPointCut5" expression="execution(* demo.DummyBean.talk(..))" />
+			<aop:around pointcut-ref="loggerPointCut5" method="traceExcetionTime"/>
 		</aop:aspect>
-		
-		<!-- loggerAspect3 -->
-		<aop:aspect id="loggerAspect3" ref="loggerAspectBean">
-		
-			<aop:pointcut id="loggerPointCut3" expression="execution(* demo.DummyBean.throwARunTimeException(..))" />
-			
-			<aop:after-throwing pointcut-ref="loggerPointCut3" throwing="ex" method="logAfterThrowingMethod"/>
-			
-		</aop:aspect>
-		
+
 	</aop:config>
 
 	<bean id="loggerAspectBean" class="demo.spring_aop.AopLogger">
